@@ -1,0 +1,15 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Inventoris</h1>
+
+<div id="inventoris" class="d-flex flex-column align-items-center gap-3">
+  <div class="container-lg align-self-start"><%= link_to "New Inventori", new_inventori_path, class: 'btn btn-primary' %></div>
+  <% if @inventoris.count > 0 %>
+    <% @inventoris.each do |inventori| %>
+      <%= render 'listed_inventori', inventori: %>
+    <% end %>
+  <% else %>
+    <h3>No Inventories posted</h3>
+  <% end %>
+</div>
+
