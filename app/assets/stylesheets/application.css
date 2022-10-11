@@ -13,3 +13,44 @@
  *= require_tree .
  *= require_self
  */
+ .food {
+    display: flex;
+    gap: 18px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    padding: 10px;
+ }
+
+ .teble {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: .9em;
+    min-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+ }
+
+ .teble thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+ }
+
+ .teble th,
+ .teble td {
+    padding: 12px 15px;
+ }
+
+ .teble tbody tr {
+    border-bottom: 1px solid #dddddd; 
+ }
+
+ .teble tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+ }
+
+.teble tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
