@@ -34,7 +34,7 @@
 
 .teble thead tr {
   background-color: #009879;
-  color: #ffffff;
+  color: #dbd6d6;
   text-align: left;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .teble tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid #d2d0d0;
 }
 
 .teble tbody tr:nth-of-type(even) {
