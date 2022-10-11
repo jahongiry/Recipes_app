@@ -1,0 +1,16 @@
+<div class="container-lg row p-4 border border-secondary rounded shadow">
+  <div class="col-3">
+    <h3>
+      <%= link_to inventori.name, inventori , class: "nav-link text-info"%>
+    </h3>
+    <div><%= link_to 'Remove',
+      inventori_path(inventori), data: {
+                      turbo_method: :delete,
+                      turbo_confirm: "Are you sure?"
+                    },
+      class: "btn btn-danger" %></div>
+  </div>
+  <div class="col-5 text-truncate">
+    <%= inventori.description %>
+  </div>
+</div>
