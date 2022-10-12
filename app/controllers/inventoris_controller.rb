@@ -7,7 +7,9 @@ class InventorisController < ApplicationController
   end
 
   # GET /inventoris/1 or /inventoris/1.json
-  def show; end
+  def show
+    @foods = @inventori.inventory_foods.includes(:food)
+  end
 
   # GET /inventoris/new
   def new
