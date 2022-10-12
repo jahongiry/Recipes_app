@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
   private
 
   def set_recipe
-    @recipe = Recipe.find(10)
+    @recipe = Recipe.find(11)
   end
 
   def recipe_params
