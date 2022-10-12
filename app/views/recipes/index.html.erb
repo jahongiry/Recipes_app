@@ -1,6 +1,6 @@
 <section class="d-flex flex-column align-items-center">
   <h1 class="text-center mb-5">Recipes</h1>
-
+<%= link_to "Create new Recipe", new_recipe_path, class: 'btn btn-sm btn-primary mb-2 align-self-center' %>
   <div class="d-flex flex-column">
     <% if @recipes.empty? %>
       <h2 class="text-center">The list is empty.</h2>
