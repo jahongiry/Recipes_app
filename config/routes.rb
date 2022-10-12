@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   delete 'recipe_foods/:id/destroy/:food_id', to: 'recipe_foods#destroy'
   post 'recipe_foods/:id/create', to: 'recipe_foods#create'
   root 'users#index'
+  namespace :public_recipes do
+    get '', action: 'index'
+    get '/:id', action: 'show'
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
