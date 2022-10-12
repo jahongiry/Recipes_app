@@ -4,7 +4,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :inventoris
+  resources :recipes
+  get 'recipe_foods/:id/new', to: 'recipe_foods#new'
+  delete 'recipe_foods/:id/destroy/:food_id', to: 'recipe_foods#destroy'
+  post 'recipe_foods/:id/create', to: 'recipe_foods#create'
   root 'users#index'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
