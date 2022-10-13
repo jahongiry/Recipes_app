@@ -32,7 +32,7 @@ To get a local copy up and running follow these simple example steps.
 - Have `visual-studio code` or any other code editor installed on your computer.
 
 ### Setup
-- In order to get a copy of this project you need to download it from https://github.com/jahongiry/
+- In order to get a copy of this project you need to download it from [here](https://github.com/jahongiry/)
 - Extract the zipped file and open it in your code editor
 ### Install
 - Run the command bellow in your terminal to get all required files
@@ -59,8 +59,8 @@ rspec spec
 
 👤 **Yohannes Dagnachew**
 
-- GitHub: [@yohannesdagnachew](https://github.com/yohannesdagnachew/Blog-app)
-- LinkedIn: [Yohannes](https://www.linkedin.com/in/yohannesdagnachew/)
+- GitHub: [@github](https://github.com/yohannesdagnachew/Blog-app)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/yohannesdagnachew/)
 
 👤 **Zelalem Fissha**
 
