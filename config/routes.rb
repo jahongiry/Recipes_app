@@ -8,6 +8,19 @@ Rails.application.routes.draw do
   delete 'inventory_foods/:id/destroy/:food_id', to: 'inventory_foods#destroy'
   post 'inventory_foods/:id/create', to: 'inventory_foods#create'
   root 'users#index'
+
+  get 'recipe_foods/:id/new', to: 'recipe_foods#new'
+  delete 'recipe_foods/:id/destroy/:food_id', to: 'recipe_foods#destroy'
+  post 'recipe_foods/:id/create', to: 'recipe_foods#create'
+
+  resources :recipes, only: [:index, :show, :destroy, :new, :create] do
+    resources :recipe_foods, only: [:index, :edit, :destroy]
+  end
+
+  namespace :public_recipes do
+    get '', action: 'index'
+    get '/:id', action: 'show'
+  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
