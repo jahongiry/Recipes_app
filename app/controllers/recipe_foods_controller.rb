@@ -1,50 +1,34 @@
 class RecipeFoodsController < ApplicationController
-  include RecipeFoodHelper
-
   def new
+    @recipe = Recipe.find(params[:id])
     @recipe_food = RecipeFood.new
-    query_recipe
-  end
-
-  def create
-    query_recipe
-    @recipe_food = RecipeFood.new(create_params)
-    if @recipe_food.save
-      redirect_to(recipe_url(@recipe), notice: 'Ingredient has been added successfully!')
-    else
-      render(:new, alert: 'Something went wrong!')
-    end
-  end
-
-  def edit
-    query_ingredient
-  end
-
-  def update
-    query_ingredient
-
-    if @recipe_food.update(update_params)
-      flash[:notice] = 'Recipe food updated Successfully!'
-    else
-      flash[:alert] = 'Something went wrong!'
-    end
-
-    redirect_to(recipe_url(@recipe_food.recipe))
   end
 
   def destroy
-    query_ingredient
-    @recipe_food.destroy
-    redirect_to(recipe_url(params[:recipe_id]), notice: 'Ingredient deleted!')
+    @recipe_food = RecipeFood.find_by(id: params[:food_id])
+
+    if @recipe_food.destroy
+      flash[:notice] = 'Recipe food deleted successfully!!'
+    else
+      flash[:alert] = 'Something unexpected happened, recipe could not be deleted.'
+    end
+    redirect_to recipe_path(params[:id])
   end
 
-  private
+  def create
+    food_list = params[:recipe_food][:food_list]
+    food_list = food_list.drop(1)
+    food_list.each do |food|
+      next unless RecipeFood.where(food_id: food.to_i, recipe_id: params[:id]).blank?
 
-  def create_params
-    params.permit(:quantity, :recipe_id)
+      new_recipe_food = RecipeFood.new(food_id: food.to_i, quantity: params[:recipe_food][:quantity],
+                                       recipe_id: params[:id])
+      new_recipe_food.save
+    end
+    redirect_to recipe_path(params[:id]), flash: { success: 'Recipe food has been added successfully!' }
   end
 
-  def update_params
-    params.require(:ingred).permit(:quantity)
+  def recipe_food_params
+    params.require(:recipe_food).permit(:food_list, :quantity)
   end
 end
