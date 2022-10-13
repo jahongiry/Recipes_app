@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe
-      .includes(:user)
       .where(user: current_user)
       .order(created_at: :desc)
   end
@@ -21,7 +20,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe, = Recipe.where(id: params[:id], user: current_user)
+    @recipe, = Recipe.where(id: params[:id])
     @recipe_foods = @recipe.recipe_foods.includes(:food)
   end
 
