@@ -21,6 +21,11 @@
       <%= form.text_area :description , class:"form-control", placeholder: "description" %>
     </div>
 
+    <div class="form-check form-switch">
+    <%= form.check_box :public, class: "form-check-input", role: "switch" %>
+    <%= form.label :public, style: "display: block", class: "form-check-label"  %>
+  </div>
+
 
     <div>
       <%= form.submit 'Create Recipe', class: "btn btn-primary my-3"  %>
