@@ -39,7 +39,7 @@ class RecipesController < ApplicationController
   def create_params
     params
       .require(:recipe)
-      .permit(:name, :preparation_time, :cooking_time, :description , :public)
+      .permit(:name, :preparation_time, :cooking_time, :description, :public)
       .merge(user: current_user)
   end
 end
