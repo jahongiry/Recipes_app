@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Public Recipes</h1>
+
+<div id="recipes" class="d-flex flex-column align-items-center gap-3">
+  <div class="container-lg align-self-start">
+      <%= link_to 'Create new recipe', new_recipe_path, class: 'btn btn-primary' %>
+  </div>
+  <% if @recipes.count > 0 %>
+    <% @recipes.each do |recipe| %>
+      <%= render 'public_recipe', recipe: %>
+    <% end %>
+  <% else %>
+    <h3>No public recipes posted</h3>
+  <% end %>
+</div>
